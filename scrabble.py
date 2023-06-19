@@ -24,12 +24,15 @@ def run_scrabble(rack):
         if rack.count('*') + rack.count('?') > 2:
             return "You have too many wildcard characters."
 
+        # Validate if each word in data can be assembled
         for v_word in data:
+            # If the word is longer than the available letters, quickly move on to the next word
             if len(rack) < len(v_word):
                 continue
             word_possible = True
             rack_buffer = rack.upper()
             letters_used = ""
+            # As we run through the letters in the word, remove them from the available letters
             for char in v_word:
                 if char in rack_buffer:
                     rack_buffer = rack_buffer.replace(char, '', 1)
@@ -41,6 +44,7 @@ def run_scrabble(rack):
                 else:
                     word_possible = False
                     break
+            # Add the word to the list if it's possible to build the word
             if word_possible:
                 valid_words.append((score_word(letters_used), v_word))
 
