@@ -32,6 +32,10 @@ def run_scrabble(rack):
             for char in v_word:
                 if char in rack_buffer:
                     rack_buffer = rack_buffer.replace(char, '', 1)
+                elif '*' in rack_buffer:
+                    rack_buffer = rack_buffer.replace('*', '', 1)
+                elif '?' in rack_buffer:
+                    rack_buffer = rack_buffer.replace('?', '', 1)
                 else:
                     word_possible = False
                     break
