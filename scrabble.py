@@ -1,6 +1,8 @@
 from wordscore import score_word
 
 def run_scrabble(rack):
+    '''This function takes an input string representing a scrabble rack
+    of length 2-7 and returns a list of valid words that can be made.'''
 
     valid_chars = "abcdefghijklmnopqrstuvwxyz*?"
 
