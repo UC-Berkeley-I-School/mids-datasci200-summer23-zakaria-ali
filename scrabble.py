@@ -5,6 +5,7 @@ def run_scrabble(rack):
     of length 2-7 and returns a list of valid words that can be made.'''
 
     valid_chars = "abcdefghijklmnopqrstuvwxyz*?"
+    valid_words = []
 
     with open("sowpods.txt","r") as infile:
         raw_input = infile.readlines()
@@ -22,3 +23,19 @@ def run_scrabble(rack):
         # Error handling for incorrect
         if rack.count('*') + rack.count('?') > 2:
             return "You have too many wildcard characters."
+
+        for v_word in data:
+            if len(rack) < len(v_word):
+                continue
+            word_possible = True
+            rack_buffer = rack
+            for char in v_word:
+                if char in rack_buffer:
+                    rack_buffer = rack_buffer.replace(char, '', 1)
+                else:
+                    word_possible = False
+                    break
+            if word_possible:
+                valid_words.append((score_word(v_word), v_word))
+
+        return (valid_words, len(valid_words))
