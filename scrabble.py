@@ -18,5 +18,5 @@ def run_scrabble(rack):
                 return "You input an invalid character. Only a-z, *, and ? are allowed."
 
         # Error handling for incorrect
-        if len(rack.strip('*?')) > 2:
+        if len(rack.replace('*', '').strip('?')) > 2:
             return "You have too many wildcard characters."
