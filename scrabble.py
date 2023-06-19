@@ -7,5 +7,5 @@ def run_scrabble(rack):
         data = [datum.strip('\n') for datum in raw_input]
 
         # Error handling
-        if rack == None:
+        if len(rack) == 0:
             return "You must input a minimum of 2 characters"
