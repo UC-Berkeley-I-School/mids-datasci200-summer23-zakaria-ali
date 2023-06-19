@@ -29,9 +29,11 @@ def run_scrabble(rack):
                 continue
             word_possible = True
             rack_buffer = rack.upper()
+            letters_used = ""
             for char in v_word:
                 if char in rack_buffer:
                     rack_buffer = rack_buffer.replace(char, '', 1)
+                    letters_used += char
                 elif '*' in rack_buffer:
                     rack_buffer = rack_buffer.replace('*', '', 1)
                 elif '?' in rack_buffer:
@@ -40,7 +42,7 @@ def run_scrabble(rack):
                     word_possible = False
                     break
             if word_possible:
-                valid_words.append((score_word(v_word), v_word))
+                valid_words.append((score_word(letters_used), v_word))
 
         valid_words = sorted(valid_words, key=lambda x: (-x[0], x[1]))
 
