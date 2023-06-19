@@ -38,4 +38,8 @@ def run_scrabble(rack):
             if word_possible:
                 valid_words.append((score_word(v_word), v_word))
 
+        valid_words = sorted(valid_words, key=lambda x: (-x[0], x[1]))
+
         return (valid_words, len(valid_words))
+
+print(run_scrabble("ZZZZEE"))
