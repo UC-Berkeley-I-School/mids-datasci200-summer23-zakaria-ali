@@ -28,7 +28,7 @@ def run_scrabble(rack):
             if len(rack) < len(v_word):
                 continue
             word_possible = True
-            rack_buffer = rack
+            rack_buffer = rack.lower()
             for char in v_word:
                 if char in rack_buffer:
                     rack_buffer = rack_buffer.replace(char, '', 1)
