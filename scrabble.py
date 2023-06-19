@@ -6,4 +6,6 @@ def run_scrabble(rack):
         raw_input = infile.readlines()
         data = [datum.strip('\n') for datum in raw_input]
 
-        
+        # Error handling
+        if rack == None:
+            return "You must input a minimum of 2 characters"
