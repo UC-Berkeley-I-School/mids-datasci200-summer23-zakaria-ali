@@ -41,5 +41,3 @@ def run_scrabble(rack):
         valid_words = sorted(valid_words, key=lambda x: (-x[0], x[1]))
 
         return (valid_words, len(valid_words))
-
-print(run_scrabble("ZZZZEE"))
