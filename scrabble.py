@@ -16,7 +16,7 @@ def run_scrabble(rack):
             return "You must input a minimum of 2 characters and a maximum of 7 characters."
 
         # Error handling for invalid characters
-        for char in rack:
+        for char in rack.lower():
             if char not in valid_chars:
                 return "You input an invalid character. Only a-z, *, and ? are allowed."
 
@@ -36,6 +36,6 @@ def run_scrabble(rack):
                     word_possible = False
                     break
             if word_possible:
-                valid_words.append((score_word(v_word), v_word))
+                valid_words.append((score_word(v_word), v_word.upper()))
 
         return (valid_words, len(valid_words))
