@@ -48,3 +48,17 @@ def display(deposits, top, bottom, left, right):
                 ans += "-"
         ans += "\n"
     return ans
+
+def tons_inside(deposits, top, bottom, left, right):
+    """Returns the total number of tons of deposits for which the row is at least top,
+    but strictly less than bottom, and the column is at least left, but strictly
+    less than right."""
+    # Do not alter the function header.  
+    # Just fill in the code so it returns the correct number of tons.
+ 
+
+    total = 0.0
+    for deposit in deposits:
+        if deposit[0] >= top and deposit[0] < bottom and deposit[1] >= left and deposit[1] < right:
+            total += deposit[2]
+    return total
