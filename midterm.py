@@ -26,3 +26,25 @@ def count_retweets_by_username(tweet_list):
         str_idx = 0
     
     return retweet_counts
+
+def display(deposits, top, bottom, left, right):
+    ans = ""
+    deposits.sort()
+    deposits_idx = 0
+    while (deposits_idx < len(deposits) and deposits[deposits_idx][0] < left):
+        deposits_idx += 1
+    for row in range(top, bottom):
+        if(deposits_idx < len(deposits) and deposits[deposits_idx][0] == row):
+            for column in range(left, right):
+                if (deposits[deposits_idx][1] == column):
+                    ans += "X"
+                    if (deposits_idx + 1 < len(deposits) and deposits[deposits_idx + 1][0] == deposits[deposits_idx][0]):
+                        deposits_idx += 1
+                else:
+                    ans += "-"
+            deposits_idx += 1
+        else:
+            for column in range(left, right):
+                ans += "-"
+        ans += "\n"
+    return ans
