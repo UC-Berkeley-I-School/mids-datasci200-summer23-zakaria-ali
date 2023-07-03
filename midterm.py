@@ -62,3 +62,23 @@ def tons_inside(deposits, top, bottom, left, right):
         if deposit[0] >= top and deposit[0] < bottom and deposit[1] >= left and deposit[1] < right:
             total += deposit[2]
     return total
+
+def birthday_count(dates_list):
+    """Returns the total number of birthday pairs in the dates_list"""
+    count = 0
+    inner_idx = 1
+
+    for person_a in dates_list:
+        for person_b in dates_list[inner_idx:]:
+            # Make sure we have different people        
+
+            if person_a is person_b:
+                continue
+
+            # Check both month and day
+            if person_a[0] == person_b[0] and person_a[1] == person_b[1]:
+                count += 1
+        inner_idx += 1
+                
+             
+    return count
